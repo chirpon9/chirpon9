@@ -3,9 +3,6 @@ documents/
 DATASET_SUMMARY.md
 README.md
 
-# Source data files (too large, not needed for deployment)
-datasets/*.xlsx
-
 # macOS
 .DS_Store
 
