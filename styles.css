@@ -54,7 +54,6 @@ h2 {
     opacity: 0.8;
 }
 
-/* Content Sections - Using Pure.css containers */
 .content-section {
     max-width: 1200px;
     margin: 2rem auto;
@@ -70,7 +69,6 @@ h2 {
     border-left: 4px solid var(--accent-color);
 }
 
-/* Stat Boxes */
 .stat-box {
     background: white;
     border: 2px solid #e2e8f0;
@@ -92,13 +90,11 @@ h2 {
     margin-top: 0.5rem;
 }
 
-/* Visualizations */
 .visualization {
     margin: 2rem 0;
     padding: 1rem;
 }
 
-/* Insight Boxes */
 .insight {
     background-color: #fff9f5;
     border-left: 4px solid var(--accent-color);
@@ -135,7 +131,6 @@ h2 {
     margin-top: 1.5rem;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .header-section h1 {
         font-size: 2rem;
