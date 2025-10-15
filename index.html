@@ -5,21 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mental Health in Australia | Data Visualization</title>
     
-    <!-- Vega, Vega-Lite, and Vega-Embed -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     
-    <!-- Pure CSS for layout -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css">
     
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     
-    <!-- Header Section -->
     <div class="header-section">
         <div class="pure-g">
             <div class="pure-u-1">
@@ -30,7 +26,6 @@
         </div>
     </div>
 
-    <!-- Introduction -->
     <div class="content-section">
         <div class="pure-g">
             <div class="pure-u-1 pure-u-md-2-3">
@@ -56,7 +51,6 @@
         </div>
     </div>
 
-    <!-- Map Section -->
     <div class="content-section highlight-section">
         <div class="pure-g">
             <div class="pure-u-1">
@@ -76,7 +70,6 @@
         </div>
     </div>
 
-    <!-- Demographics Section -->
     <div class="content-section">
         <div class="pure-g">
             <div class="pure-u-1">
@@ -99,7 +92,6 @@
         </div>
     </div>
 
-    <!-- Service Access Section -->
     <div class="content-section highlight-section">
         <div class="pure-g">
             <div class="pure-u-1">
@@ -119,7 +111,6 @@
         </div>
     </div>
 
-    <!-- Outcomes Section -->
     <div class="content-section">
         <div class="pure-g">
             <div class="pure-u-1">
@@ -139,7 +130,6 @@
         </div>
     </div>
 
-    <!-- Conclusion Section -->
     <div class="content-section conclusion-section">
         <div class="pure-g">
             <div class="pure-u-1">
@@ -157,7 +147,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <div class="footer-section">
         <div class="pure-g">
             <div class="pure-u-1">
@@ -166,15 +155,11 @@
                     <li>Australian Bureau of Statistics - National Study of Mental Health and Wellbeing (2020-2022)</li>
                     <li>Australian Institute of Health and Welfare - Suicide & Self-Harm Monitoring Data (2023)</li>
                 </ul>
-                <p class="author-info">Created by [Your Name] | October 2025</p>
-                <p class="author-info">FIT3179 Data Visualisation 2 | Monash University</p>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript to embed Vega-Lite visualizations -->
     <script>
-        // Embed visualizations from JSON spec files
         vegaEmbed('#map-viz', 'charts/australia_map.vl.json', {
             actions: { export: true, source: false, compiled: false, editor: false }
         }).catch(console.error);
