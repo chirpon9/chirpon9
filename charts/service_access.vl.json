@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Mental Health Service Access by State/Territory",
+    "fontSize": 18,
+    "font": "Merriweather",
+    "anchor": "start"
+  },
+  "width": 700,
+  "height": 350,
+  "data": {
+    "values": [
+      {"state": "NSW", "access_rate": 45.2},
+      {"state": "VIC", "access_rate": 48.1},
+      {"state": "QLD", "access_rate": 42.3},
+      {"state": "SA", "access_rate": 46.7},
+      {"state": "WA", "access_rate": 43.9},
+      {"state": "TAS", "access_rate": 41.5},
+      {"state": "NT", "access_rate": 38.2},
+      {"state": "ACT", "access_rate": 51.3}
+    ]
+  },
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 4
+  },
+  "encoding": {
+    "x": {
+      "field": "state",
+      "type": "nominal",
+      "title": "State/Territory",
+      "axis": {
+        "labelAngle": 0,
+        "labelFontSize": 12
+      },
+      "sort": "-y"
+    },
+    "y": {
+      "field": "access_rate",
+      "type": "quantitative",
+      "title": "% Who Consulted Health Professional",
+      "scale": {
+        "domain": [0, 60]
+      },
+      "axis": {
+        "labelFontSize": 12
+      }
+    },
+    "color": {
+      "field": "access_rate",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "teals"
+      },
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "state", "type": "nominal", "title": "State/Territory"},
+      {"field": "access_rate", "type": "quantitative", "title": "Access Rate (%)", "format": ".1f"}
+    ]
+  }
+}

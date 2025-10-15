@@ -1,0 +1,53 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Mental Health Prevalence by Age Group",
+    "fontSize": 18,
+    "font": "Merriweather",
+    "anchor": "start"
+  },
+  "width": 500,
+  "height": 350,
+  "data": {
+    "values": [
+      {"age_group": "16-24", "prevalence": 32.4},
+      {"age_group": "25-34", "prevalence": 22.8},
+      {"age_group": "35-44", "prevalence": 16.7},
+      {"age_group": "45-54", "prevalence": 16.5},
+      {"age_group": "55-64", "prevalence": 15.6},
+      {"age_group": "65-74", "prevalence": 8.8},
+      {"age_group": "75-85", "prevalence": 6.4}
+    ]
+  },
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 4,
+    "color": "#e76f51"
+  },
+  "encoding": {
+    "x": {
+      "field": "age_group",
+      "type": "nominal",
+      "title": "Age Group",
+      "axis": {
+        "labelAngle": 0,
+        "labelFontSize": 12
+      }
+    },
+    "y": {
+      "field": "prevalence",
+      "type": "quantitative",
+      "title": "12-Month Prevalence (%)",
+      "scale": {
+        "domain": [0, 35]
+      },
+      "axis": {
+        "labelFontSize": 12
+      }
+    },
+    "tooltip": [
+      {"field": "age_group", "type": "nominal", "title": "Age Group"},
+      {"field": "prevalence", "type": "quantitative", "title": "Prevalence (%)", "format": ".1f"}
+    ]
+  }
+}

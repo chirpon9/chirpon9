@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health in Australia | Data Visualization</title>
+    
+    <!-- Vega, Vega-Lite, and Vega-Embed -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    
+    <!-- Pure CSS for layout -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <!-- Header Section -->
+    <div class="header-section">
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <h1>Mental Health Across Australia</h1>
+                <p class="subtitle">Understanding prevalence, access to care, and outcomes across states and territories</p>
+                <p class="metadata">Data Sources: Australian Bureau of Statistics (2020-2022) | Australian Institute of Health and Welfare (2023)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Introduction -->
+    <div class="content-section">
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-md-2-3">
+                <h2>The Mental Health Landscape</h2>
+                <p>Mental health affects millions of Australians every year. In 2020-2022, approximately <strong>43% of Australians aged 16-85</strong> experienced a mental disorder at some point in their lifetime. But the story varies significantly across our states and territories.</p>
+                <p>This visualization explores three critical questions:</p>
+                <ul>
+                    <li><strong>Where</strong> are mental health challenges most prevalent?</li>
+                    <li><strong>Who</strong> is most affected, and are they getting help?</li>
+                    <li><strong>What happens</strong> when access to care is limited?</li>
+                </ul>
+            </div>
+            <div class="pure-u-1 pure-u-md-1-3">
+                <div class="stat-box">
+                    <div class="stat-number">43%</div>
+                    <div class="stat-label">Lifetime mental disorder prevalence</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">3,144</div>
+                    <div class="stat-label">Suicide deaths in 2023</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="content-section highlight-section">
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <h2>Where: Mental Health Across States and Territories</h2>
+                <p>The map below shows the prevalence of 12-month mental disorders across Australian states and territories. Darker colors indicate higher rates of mental health conditions.</p>
+            </div>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <div id="map-viz" class="visualization"></div>
+            </div>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <p class="insight"><strong>Key Insight:</strong> Mental health prevalence varies across regions, with some states showing significantly higher rates than others. Understanding these geographic patterns helps identify where resources are most needed.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Demographics Section -->
+    <div class="content-section">
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <h2>Who: Age and Gender Patterns</h2>
+                <p>Mental health doesn't affect everyone equally. Age and gender play significant roles in both prevalence and the types of disorders experienced.</p>
+            </div>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div id="age-viz" class="visualization"></div>
+            </div>
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div id="gender-viz" class="visualization"></div>
+            </div>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <p class="insight"><strong>Key Insight:</strong> Young adults (16-24 years) show the highest rates of mental health conditions, particularly anxiety disorders. Women report higher rates of anxiety and affective disorders, while men show higher rates of substance use disorders.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Access Section -->
+    <div class="content-section highlight-section">
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <h2>Getting Help: Access to Mental Health Services</h2>
+                <p>Having a mental health condition is one thing—getting help is another. This section examines who is accessing mental health services and where gaps exist.</p>
+            </div>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <div id="service-access-viz" class="visualization"></div>
+            </div>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <p class="insight"><strong>Key Insight:</strong> Despite high prevalence rates, a significant proportion of people with mental health conditions do not seek professional help. Barriers include cost, stigma, and limited availability of services in certain regions.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Outcomes Section -->
+    <div class="content-section">
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <h2>When Help Isn't Accessible: Understanding Outcomes</h2>
+                <p>The most severe outcome of untreated mental health conditions is suicide. By examining suicide rates alongside service access, we can identify critical gaps in our mental health system.</p>
+            </div>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <div id="suicide-trends-viz" class="visualization"></div>
+            </div>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <p class="insight"><strong>Key Insight:</strong> There is a clear inverse relationship between service access and suicide rates. The Northern Territory, with the lowest service access rate (38%), has the highest suicide rate (21.7 per 100,000). In contrast, the ACT with the highest access rate (51%) has the lowest suicide rate (9.4 per 100,000). This demonstrates the critical importance of accessible mental health care.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conclusion Section -->
+    <div class="content-section conclusion-section">
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <h2>What This Tells Us</h2>
+                <p>The data reveals a clear narrative: <strong>mental health challenges are widespread across Australia, but access to care is not.</strong></p>
+                <p>Key takeaways:</p>
+                <ul>
+                    <li>Mental health conditions affect people across all states and territories, but prevalence varies by region</li>
+                    <li>Young adults are particularly vulnerable, with the highest rates of anxiety and affective disorders</li>
+                    <li>Many people with mental health conditions do not access professional help</li>
+                    <li>Regions with limited service access show concerning outcomes, including higher suicide rates</li>
+                </ul>
+                <p><strong>The path forward:</strong> Improving access to mental health services, particularly in underserved regions and for young people, is essential for better outcomes across Australia.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-section">
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <p><strong>Data Sources:</strong></p>
+                <ul>
+                    <li>Australian Bureau of Statistics - National Study of Mental Health and Wellbeing (2020-2022)</li>
+                    <li>Australian Institute of Health and Welfare - Suicide & Self-Harm Monitoring Data (2023)</li>
+                </ul>
+                <p class="author-info">Created by [Your Name] | October 2025</p>
+                <p class="author-info">FIT3179 Data Visualisation 2 | Monash University</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript to embed Vega-Lite visualizations -->
+    <script>
+        // Embed visualizations from JSON spec files
+        vegaEmbed('#map-viz', 'charts/australia_map.vl.json', {
+            actions: { export: true, source: false, compiled: false, editor: false }
+        }).catch(console.error);
+
+        vegaEmbed('#age-viz', 'charts/age_mental_health.vl.json', {
+            actions: { export: true, source: false, compiled: false, editor: false }
+        }).catch(console.error);
+
+        vegaEmbed('#gender-viz', 'charts/gender_disorders.vl.json', {
+            actions: { export: true, source: false, compiled: false, editor: false }
+        }).catch(console.error);
+
+        vegaEmbed('#service-access-viz', 'charts/service_access.vl.json', {
+            actions: { export: true, source: false, compiled: false, editor: false }
+        }).catch(console.error);
+
+        vegaEmbed('#suicide-trends-viz', 'charts/suicide_comparison.vl.json', {
+            actions: { export: true, source: false, compiled: false, editor: false }
+        }).catch(console.error);
+    </script>
+
+</body>
+</html>

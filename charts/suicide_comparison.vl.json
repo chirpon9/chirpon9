@@ -1,0 +1,69 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Suicide Rates vs Mental Health Service Access",
+    "fontSize": 18,
+    "font": "Merriweather",
+    "anchor": "start"
+  },
+  "width": 600,
+  "height": 400,
+  "data": {
+    "values": [
+      {"state": "NSW", "suicide_rate": 11.2, "access_rate": 45.2},
+      {"state": "VIC", "suicide_rate": 10.8, "access_rate": 48.1},
+      {"state": "QLD", "suicide_rate": 13.5, "access_rate": 42.3},
+      {"state": "SA", "suicide_rate": 12.1, "access_rate": 46.7},
+      {"state": "WA", "suicide_rate": 12.9, "access_rate": 43.9},
+      {"state": "TAS", "suicide_rate": 14.3, "access_rate": 41.5},
+      {"state": "NT", "suicide_rate": 21.7, "access_rate": 38.2},
+      {"state": "ACT", "suicide_rate": 9.4, "access_rate": 51.3}
+    ]
+  },
+  "mark": {
+    "type": "point",
+    "filled": true,
+    "size": 150
+  },
+  "encoding": {
+    "x": {
+      "field": "access_rate",
+      "type": "quantitative",
+      "title": "Mental Health Service Access Rate (%)",
+      "scale": {
+        "domain": [35, 55]
+      },
+      "axis": {
+        "labelFontSize": 12
+      }
+    },
+    "y": {
+      "field": "suicide_rate",
+      "type": "quantitative",
+      "title": "Suicide Rate (per 100,000)",
+      "scale": {
+        "domain": [8, 23]
+      },
+      "axis": {
+        "labelFontSize": 12
+      }
+    },
+    "color": {
+      "field": "suicide_rate",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "reds"
+      },
+      "legend": {
+        "title": "Suicide Rate",
+        "titleFontSize": 12,
+        "labelFontSize": 11
+      }
+    },
+    "tooltip": [
+      {"field": "state", "type": "nominal", "title": "State/Territory"},
+      {"field": "access_rate", "type": "quantitative", "title": "Service Access (%)", "format": ".1f"},
+      {"field": "suicide_rate", "type": "quantitative", "title": "Suicide Rate (per 100k)", "format": ".1f"}
+    ]
+  }
+}

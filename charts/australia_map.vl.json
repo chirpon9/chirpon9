@@ -1,0 +1,74 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "12-Month Mental Disorder Prevalence by State/Territory",
+    "fontSize": 20,
+    "font": "Merriweather",
+    "anchor": "start",
+    "offset": 20
+  },
+  "width": 800,
+  "height": 500,
+  "projection": {
+    "type": "mercator",
+    "center": [133, -28],
+    "scale": 700
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "datasets/australia_states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.STATE_NAME",
+          "from": {
+            "data": {
+              "values": [
+                {"state": "New South Wales", "prevalence": 19.5},
+                {"state": "Victoria", "prevalence": 21.8},
+                {"state": "Queensland", "prevalence": 20.3},
+                {"state": "South Australia", "prevalence": 22.1},
+                {"state": "Western Australia", "prevalence": 19.9},
+                {"state": "Tasmania", "prevalence": 23.4},
+                {"state": "Northern Territory", "prevalence": 18.7},
+                {"state": "Australian Capital Territory", "prevalence": 24.2}
+              ]
+            },
+            "key": "state",
+            "fields": ["prevalence"]
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "color": {
+          "field": "prevalence",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "oranges",
+            "domain": [18, 25]
+          },
+          "legend": {
+            "title": "Prevalence (%)",
+            "orient": "bottom-right",
+            "titleFontSize": 13,
+            "labelFontSize": 11
+          }
+        },
+        "tooltip": [
+          {"field": "properties.STATE_NAME", "type": "nominal", "title": "State/Territory"},
+          {"field": "prevalence", "type": "quantitative", "title": "12-Month Prevalence (%)", "format": ".1f"}
+        ]
+      }
+    }
+  ]
+}

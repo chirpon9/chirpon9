@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Mental Disorders by Gender",
+    "fontSize": 18,
+    "font": "Merriweather",
+    "anchor": "start"
+  },
+  "width": 500,
+  "height": 350,
+  "data": {
+    "values": [
+      {"disorder_type": "Anxiety", "gender": "Male", "prevalence": 13.3},
+      {"disorder_type": "Anxiety", "gender": "Female", "prevalence": 21.0},
+      {"disorder_type": "Affective", "gender": "Male", "prevalence": 6.5},
+      {"disorder_type": "Affective", "gender": "Female", "prevalence": 8.5},
+      {"disorder_type": "Substance Use", "gender": "Male", "prevalence": 4.4},
+      {"disorder_type": "Substance Use", "gender": "Female", "prevalence": 2.2}
+    ]
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "disorder_type",
+      "type": "nominal",
+      "title": "Disorder Type",
+      "axis": {
+        "labelAngle": 0,
+        "labelFontSize": 12
+      }
+    },
+    "y": {
+      "field": "prevalence",
+      "type": "quantitative",
+      "title": "12-Month Prevalence (%)",
+      "axis": {
+        "labelFontSize": 12
+      }
+    },
+    "color": {
+      "field": "gender",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Male", "Female"],
+        "range": ["#4a90a4", "#e76f51"]
+      },
+      "legend": {
+        "title": "Gender",
+        "titleFontSize": 12,
+        "labelFontSize": 11
+      }
+    },
+    "xOffset": {
+      "field": "gender"
+    },
+    "tooltip": [
+      {"field": "disorder_type", "type": "nominal", "title": "Disorder Type"},
+      {"field": "gender", "type": "nominal", "title": "Gender"},
+      {"field": "prevalence", "type": "quantitative", "title": "Prevalence (%)", "format": ".1f"}
+    ]
+  }
+}
