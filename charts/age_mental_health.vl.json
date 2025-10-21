@@ -21,8 +21,7 @@
   },
   "mark": {
     "type": "bar",
-    "cornerRadiusEnd": 4,
-    "color": "#e76f51"
+    "cornerRadiusEnd": 4
   },
   "encoding": {
     "x": {
@@ -44,6 +43,14 @@
       "axis": {
         "labelFontSize": 12
       }
+    },
+    "color": {
+      "field": "prevalence",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "oranges"
+      },
+      "legend": null
     },
     "tooltip": [
       {"field": "age_group", "type": "nominal", "title": "Age Group"},

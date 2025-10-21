@@ -20,50 +20,108 @@
       {"state": "ACT", "suicide_rate": 9.4, "access_rate": 51.3}
     ]
   },
-  "mark": {
-    "type": "point",
-    "filled": true,
-    "size": 150
-  },
-  "encoding": {
-    "x": {
-      "field": "access_rate",
-      "type": "quantitative",
-      "title": "Mental Health Service Access Rate (%)",
-      "scale": {
-        "domain": [35, 55]
+  "layer": [
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 150
       },
-      "axis": {
-        "labelFontSize": 12
+      "encoding": {
+        "x": {
+          "field": "access_rate",
+          "type": "quantitative",
+          "title": "Mental Health Service Access Rate (%)",
+          "scale": {
+            "domain": [35, 55]
+          },
+          "axis": {
+            "labelFontSize": 12
+          }
+        },
+        "y": {
+          "field": "suicide_rate",
+          "type": "quantitative",
+          "title": "Suicide Rate (per 100,000)",
+          "scale": {
+            "domain": [8, 23]
+          },
+          "axis": {
+            "labelFontSize": 12
+          }
+        },
+        "color": {
+          "field": "suicide_rate",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "reds"
+          },
+          "legend": {
+            "title": "Suicide Rate",
+            "titleFontSize": 12,
+            "labelFontSize": 11
+          }
+        },
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State/Territory"},
+          {"field": "access_rate", "type": "quantitative", "title": "Service Access (%)", "format": ".1f"},
+          {"field": "suicide_rate", "type": "quantitative", "title": "Suicide Rate (per 100k)", "format": ".1f"}
+        ]
       }
     },
-    "y": {
-      "field": "suicide_rate",
-      "type": "quantitative",
-      "title": "Suicide Rate (per 100,000)",
-      "scale": {
-        "domain": [8, 23]
+    {
+      "transform": [
+        {"filter": "datum.state == 'NT'"}
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": -8,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#d62728"
       },
-      "axis": {
-        "labelFontSize": 12
+      "encoding": {
+        "x": {
+          "field": "access_rate",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "suicide_rate",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "NT: Highest suicide rate,\nlowest service access"
+        }
       }
     },
-    "color": {
-      "field": "suicide_rate",
-      "type": "quantitative",
-      "scale": {
-        "scheme": "reds"
+    {
+      "transform": [
+        {"filter": "datum.state == 'ACT'"}
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": 8,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#2ca02c"
       },
-      "legend": {
-        "title": "Suicide Rate",
-        "titleFontSize": 12,
-        "labelFontSize": 11
+      "encoding": {
+        "x": {
+          "field": "access_rate",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "suicide_rate",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "ACT: Lowest suicide rate,\nhighest service access"
+        }
       }
-    },
-    "tooltip": [
-      {"field": "state", "type": "nominal", "title": "State/Territory"},
-      {"field": "access_rate", "type": "quantitative", "title": "Service Access (%)", "format": ".1f"},
-      {"field": "suicide_rate", "type": "quantitative", "title": "Suicide Rate (per 100k)", "format": ".1f"}
-    ]
-  }
+    }
+  ]
 }

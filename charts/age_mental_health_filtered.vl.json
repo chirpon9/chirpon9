@@ -1,0 +1,98 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Mental Health Prevalence by Age Group (Interactive)",
+    "fontSize": 18,
+    "font": "Merriweather",
+    "anchor": "start"
+  },
+  "width": 500,
+  "height": 350,
+  "data": {
+    "values": [
+      {"age_group": "16-24", "disorder": "Anxiety", "prevalence": 31.8, "gender": "All"},
+      {"age_group": "16-24", "disorder": "Affective", "prevalence": 13.5, "gender": "All"},
+      {"age_group": "16-24", "disorder": "Substance Use", "prevalence": 7.8, "gender": "All"},
+      {"age_group": "16-24", "disorder": "Any Disorder", "prevalence": 38.8, "gender": "All"},
+      {"age_group": "25-34", "disorder": "Anxiety", "prevalence": 21.9, "gender": "All"},
+      {"age_group": "25-34", "disorder": "Affective", "prevalence": 9.7, "gender": "All"},
+      {"age_group": "25-34", "disorder": "Substance Use", "prevalence": 4.1, "gender": "All"},
+      {"age_group": "25-34", "disorder": "Any Disorder", "prevalence": 26.3, "gender": "All"},
+      {"age_group": "35-44", "disorder": "Anxiety", "prevalence": 15.8, "gender": "All"},
+      {"age_group": "35-44", "disorder": "Affective", "prevalence": 6.8, "gender": "All"},
+      {"age_group": "35-44", "disorder": "Substance Use", "prevalence": 3.5, "gender": "All"},
+      {"age_group": "35-44", "disorder": "Any Disorder", "prevalence": 20.3, "gender": "All"},
+      {"age_group": "45-54", "disorder": "Anxiety", "prevalence": 15.5, "gender": "All"},
+      {"age_group": "45-54", "disorder": "Affective", "prevalence": 6.3, "gender": "All"},
+      {"age_group": "45-54", "disorder": "Substance Use", "prevalence": 2.7, "gender": "All"},
+      {"age_group": "45-54", "disorder": "Any Disorder", "prevalence": 20.2, "gender": "All"},
+      {"age_group": "55-64", "disorder": "Anxiety", "prevalence": 14.3, "gender": "All"},
+      {"age_group": "55-64", "disorder": "Affective", "prevalence": 6.7, "gender": "All"},
+      {"age_group": "55-64", "disorder": "Substance Use", "prevalence": 1.3, "gender": "All"},
+      {"age_group": "55-64", "disorder": "Any Disorder", "prevalence": 17.9, "gender": "All"},
+      {"age_group": "65-74", "disorder": "Anxiety", "prevalence": 9.0, "gender": "All"},
+      {"age_group": "65-74", "disorder": "Affective", "prevalence": 4.7, "gender": "All"},
+      {"age_group": "65-74", "disorder": "Substance Use", "prevalence": 1.2, "gender": "All"},
+      {"age_group": "65-74", "disorder": "Any Disorder", "prevalence": 11.9, "gender": "All"},
+      {"age_group": "75-85", "disorder": "Anxiety", "prevalence": 4.7, "gender": "All"},
+      {"age_group": "75-85", "disorder": "Affective", "prevalence": 1.2, "gender": "All"},
+      {"age_group": "75-85", "disorder": "Substance Use", "prevalence": 0.2, "gender": "All"},
+      {"age_group": "75-85", "disorder": "Any Disorder", "prevalence": 5.4, "gender": "All"}
+    ]
+  },
+  "params": [
+    {
+      "name": "disorder_filter",
+      "value": "Any Disorder",
+      "bind": {
+        "input": "select",
+        "options": ["Any Disorder", "Anxiety", "Affective", "Substance Use"],
+        "labels": ["All Disorders", "Anxiety Only", "Affective Only", "Substance Use Only"],
+        "name": "Select Disorder Type: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.disorder == disorder_filter"}
+  ],
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 4
+  },
+  "encoding": {
+    "x": {
+      "field": "age_group",
+      "type": "nominal",
+      "title": "Age Group",
+      "axis": {
+        "labelAngle": 0,
+        "labelFontSize": 12
+      },
+      "sort": ["16-24", "25-34", "35-44", "45-54", "55-64", "65-74", "75-85"]
+    },
+    "y": {
+      "field": "prevalence",
+      "type": "quantitative",
+      "title": "12-Month Prevalence (%)",
+      "scale": {
+        "domain": [0, 40]
+      },
+      "axis": {
+        "labelFontSize": 12
+      }
+    },
+    "color": {
+      "field": "prevalence",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "oranges"
+      },
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "age_group", "type": "nominal", "title": "Age Group"},
+      {"field": "disorder", "type": "nominal", "title": "Disorder Type"},
+      {"field": "prevalence", "type": "quantitative", "title": "Prevalence (%)", "format": ".1f"}
+    ]
+  }
+}
